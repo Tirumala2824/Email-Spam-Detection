@@ -1,50 +1,38 @@
-# Email-Spam-Detection
+# Email Spam Detection
 
-> A maintainable software project maintained by [Tirumala2824](https://github.com/Tirumala2824).
+> A machine-learning experiment for classifying email messages and documenting the transition from a single script toward reproducible text-model evaluation.
 
 [![CI](https://github.com/Tirumala2824/Email-Spam-Detection/actions/workflows/ci.yml/badge.svg)](https://github.com/Tirumala2824/Email-Spam-Detection/actions/workflows/ci.yml)
 
-## Overview
+## Status
 
-This repository contains **Email-Spam-Detection**. Replace this paragraph with the precise user problem, target audience, and project outcome before treating the repository as production-ready.
+**Category:** Research or ML.
 
-## Features
+**Lifecycle:** Public research artifact. It is not a production email gateway or a security product.
 
-Document the supported functionality, important workflows, and known non-goals here.
+## Project scope
 
-## Tech stack
+The repository contains the primary classification script, a dataset archive, repository-structure tests, and documentation scaffolding. A complete production system would additionally need a documented dataset license and provenance, text normalization and feature contracts, train/validation/test discipline, reproducible dependencies, evaluation reports, model versioning, monitoring, and a safe deployment boundary.
 
-- **Detected technology:** Python
-- **Repository contents:** `README.md`, `email_soam_detection.py`, `emails.zip`
+## Architecture
 
-## Installation
+```text
+labeled email data
+    -> text preprocessing and feature extraction
+    -> classifier training and evaluation
+    -> spam/ham prediction artifact
+```
 
-Use the project-specific prerequisites and commands documented in the source files and `docs/`.
+Keep data loading, preprocessing, training, and evaluation explicit and independently testable. Never use a model trained on private email without consent, retention controls, privacy review, and a documented human escalation path. See [`docs/engineering-standards.md`](docs/engineering-standards.md).
 
-## Usage
+## Reproducibility and quality
 
-Add the smallest useful command or example that demonstrates the project. Include screenshots or a live demo when the project has a visual interface.
+The current CI workflow validates the repository baseline and structure. Before publishing performance claims, record the dataset provenance, split methodology, class distribution, preprocessing choices, metrics, error analysis, and known limitations. Add a pinned dependency manifest and a single documented experiment command as the next remediation step.
 
-## Configuration
+## Responsible use
 
-Copy `.env.example` to `.env` when the project requires environment variables. Never commit `.env` files, credentials, tokens, or private datasets.
+Spam classification can cause false positives and missed messages. Do not deploy this artifact to make consequential decisions without domain validation, monitoring, rollback, privacy safeguards, and user-visible recovery for misclassified mail.
 
-## Project structure
+## Contributing and license
 
-See [`docs/architecture.md`](docs/architecture.md) for the maintained structure and architecture notes.
-
-## Testing and quality
-
-Run the repository's documented tests, formatter, linter, and type checker. The baseline CI workflow is in [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
-
-## Deployment
-
-See [`docs/deployment.md`](docs/deployment.md) when deploying this project. Document hosting, environment configuration, migrations, monitoring, and rollback before production use.
-
-## Contributing and security
-
-Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`SECURITY.md`](SECURITY.md).
-
-## License
-
-This project is released under the [MIT License](LICENSE).
+See [`CONTRIBUTING.md`](CONTRIBUTING.md), [`SECURITY.md`](SECURITY.md), and [`CHANGELOG.md`](CHANGELOG.md). The repository is released under the MIT License; see [`LICENSE`](LICENSE).
