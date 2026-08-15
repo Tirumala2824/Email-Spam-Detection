@@ -12,7 +12,7 @@ jobs:
   hygiene:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Check for tracked local environment files
         run: |
           if git ls-files | grep -E '(^|/)\.env$'; then
