@@ -1,0 +1,23 @@
+name: Repository hygiene
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for tracked local environment files
+        run: |
+          if git ls-files | grep -E '(^|/)\.env$'; then
+            echo "A tracked .env file was found. Remove secrets before merging."
+            exit 1
+          fi
+      - name: List repository metadata
+        run: git status --short
